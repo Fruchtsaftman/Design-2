@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ole!Ole! Kinderspielplanet - Space Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="example-design.css">
+    <script>
+        (function() {
+            var saved = localStorage.getItem('oleole-theme');
+            if (saved && ['playful', 'soft', 'bold'].indexOf(saved) !== -1) {
+                document.documentElement.setAttribute('data-theme', saved);
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Animated star canvas -->
+    <canvas id="stars-canvas"></canvas>
+
+    <!-- Floating particles layer -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation — transparent overlay style -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="img/header.png" alt="Ole!Ole!" class="nav-logo">
+                <span class="nav-status"><span class="pulse-dot"></span> Geöffnet</span>
+            </a>
+            <div class="nav-center">
+                <a href="index.html" class="nav-link active">Start</a>
+                <a href="attraktionen.html" class="nav-link">Attraktionen</a>
+                <a href="preise.html" class="nav-link">Preise</a>
+                <a href="geburtstag.html" class="nav-link">Geburtstag</a>
+                <a href="galerie.html" class="nav-link">Galerie</a>
+            </div>
+            <div class="nav-right">
+                <div class="theme-switcher" aria-label="Farbthema wechseln">
+                    <button class="theme-dot theme-dot--playful active" data-theme="playful" title="Nebula" aria-label="Nebula Theme"></button>
+                    <button class="theme-dot theme-dot--soft" data-theme="soft" title="Aurora" aria-label="Aurora Theme"></button>
+                    <button class="theme-dot theme-dot--bold" data-theme="bold" title="Solar" aria-label="Solar Theme"></button>
+                </div>
+                <a href="geburtstag.html" class="nav-cta-btn">🚀 Reservieren</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO — Full-screen immersive with centered content -->
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-center">
+            <div class="hero-tag">🪐 Kinderspielplanet Mannheim</div>
+            <h1 class="hero-title">
+                Dein Abenteuer<br>
+                <span class="hero-title-accent">beginnt hier.</span>
+            </h1>
+            <p class="hero-sub">Über 3000m² voller Abenteuer für Kinder von 0–14 Jahren. Spielen, toben, feiern — 6 Tage die Woche!</p>
+            <div class="hero-actions">
+                <a href="geburtstag.html" class="btn-glow">🎂 Geburtstag feiern</a>
+                <a href="attraktionen.html" class="btn-outline">Attraktionen entdecken →</a>
+            </div>
+        </div>
+
+        <!-- Scrolling stats ticker at bottom of hero -->
+        <div class="hero-ticker">
+            <div class="ticker-track">
+                <div class="ticker-item"><span class="ticker-num">3000+</span> m² Spielfläche</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">20+</span> Attraktionen</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">0–14</span> Jahre</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">6</span> Tage/Woche</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">3000+</span> m² Spielfläche</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">20+</span> Attraktionen</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">0–14</span> Jahre</div>
+                <div class="ticker-sep">✦</div>
+                <div class="ticker-item"><span class="ticker-num">6</span> Tage/Woche</div>
+                <div class="ticker-sep">✦</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES — Horizontal scroll cards -->
+    <section class="features-section">
+        <div class="section-header">
+            <span class="section-label">🎯 Highlights</span>
+            <h2 class="section-title">Was dich erwartet</h2>
+        </div>
+        <div class="scroll-row">
+            <div class="feature-card">
+                <div class="feature-icon">🎈</div>
+                <h3>Riesige Hüpfburg</h3>
+                <p>Springen, toben und Spaß haben auf unserer XXL-Hüpfburg für alle Altersgruppen.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏎️</div>
+                <h3>Go-Kart Bahn</h3>
+                <p>Rasante Runden drehen auf unserer Indoor Go-Kart Bahn — Adrenalin garantiert!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Lasertag Arena</h3>
+                <p>Spannendes Lasertag-Erlebnis in unserer großen Arena mit Neon-Effekten.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧗</div>
+                <h3>Kletterparadies</h3>
+                <p>Verschiedene Kletterwände und -parcours für kleine und große Abenteurer.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤸</div>
+                <h3>Trampolinpark</h3>
+                <p>Hoch hinaus! Unser Trampolinpark bringt Groß und Klein zum Fliegen.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕹️</div>
+                <h3>Spielautomaten</h3>
+                <p>Klassische Arcade-Games und moderne Spielautomaten für jede Menge Spaß.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIRTHDAY — Full-width split with image background -->
+    <section class="birthday-section">
+        <div class="birthday-split">
+            <div class="birthday-left">
+                <div class="birthday-label">🎂 Kindergeburtstag</div>
+                <h2 class="birthday-title">Feiere deinen<br>Geburtstag<br><span class="accent">bei uns!</span></h2>
+                <p class="birthday-desc">Mach deinen Geburtstag unvergesslich! Mit dekorierten Tischen, leckerem Essen und allen Attraktionen. Wir kümmern uns um alles!</p>
+                <div class="birthday-perks">
+                    <div class="perk">⭐ Dekorierter Tisch</div>
+                    <div class="perk">🍕 Essen inklusive</div>
+                    <div class="perk">🎁 Überraschung</div>
+                    <div class="perk">🎮 Alle Attraktionen</div>
+                </div>
+                <a href="geburtstag.html" class="btn-glow">Jetzt Geburtstag planen →</a>
+            </div>
+            <div class="birthday-right">
+                <div class="price-card">
+                    <div class="price-card-tag">Bestseller ⭐</div>
+                    <h3>Deluxe Paket</h3>
+                    <div class="price-card-amount"><span class="currency">€</span>22<span class="per">/Kind</span></div>
+                    <div class="price-card-divider"></div>
+                    <ul class="price-card-list">
+                        <li>✔ Eintritt für alle Kinder</li>
+                        <li>✔ Geburtstagskind feiert gratis!</li>
+                        <li>✔ Reservierter & dekorierter Tisch</li>
+                        <li>✔ Menü nach Wahl</li>
+                        <li>✔ Geschenk fürs Geburtstagskind</li>
+                        <li>✔ Alle Attraktionen inklusive</li>
+                    </ul>
+                    <a href="geburtstag.html" class="price-card-btn">Jetzt reservieren!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOYALTY + GROUPS — Dashboard grid -->
+    <section class="dashboard-section">
+        <div class="dashboard-grid">
+            <!-- Loyalty Card -->
+            <div class="dash-card dash-card--loyalty">
+                <div class="dash-card-header">
+                    <h3>Die 10er-Karte 🪐</h3>
+                    <span class="dash-badge">Spare Jetzt!</span>
+                </div>
+                <p>Unsere 10er-Karte spart richtig Geld! Übertragbar und ohne zeitliche Begrenzung — flexibel für die ganze Familie.</p>
+                <div class="stamp-row">
+                    <div class="stamp filled">⭐</div>
+                    <div class="stamp filled">⭐</div>
+                    <div class="stamp filled">⭐</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                    <div class="stamp">○</div>
+                </div>
+                <a href="https://maps.app.goo.gl/feNTfNP7UppZcevr7" target="_blank" rel="noopener noreferrer" class="btn-outline btn-sm">An der Kasse holen!</a>
+            </div>
+
+            <!-- School Groups -->
+            <div class="dash-card dash-card--groups">
+                <div class="dash-card-header">
+                    <h3>Schulausflüge & Kitas 🎒</h3>
+                </div>
+                <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
+                <p class="dash-note">Werktags vormittags, außerhalb der Ferien. Mindestanzahl: 10 Kinder.</p>
+                <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Schulausflug" class="btn-outline btn-sm">Anfrage senden →</a>
+            </div>
+
+            <!-- Social Groups -->
+            <div class="dash-card dash-card--social">
+                <div class="dash-card-header">
+                    <h3>Soziale Einrichtungen 🏢</h3>
+                </div>
+                <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
+                <p class="dash-note">Werktags vormittags, außerhalb der Ferien. Mindestanzahl: 10 Kinder.</p>
+                <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Soziale%20Einrichtung" class="btn-outline btn-sm">Jetzt anfragen →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY — Masonry with bigger hero image -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <span class="section-label">📸 Einblicke</span>
+            <h2 class="section-title">Fotogalerie</h2>
+        </div>
+        <div class="gallery-masonry">
+            <div class="gal-item gal-item--large" data-label="Geburtstagszone">
+                <img src="img/resized/Birthday.png" alt="Kinder feiern Geburtstag im Ole!Ole!" loading="lazy">
+            </div>
+            <div class="gal-item gal-item--tall" data-label="Lasertag">
+                <img src="img/resized/OleOleOut_DSC9879_1.jpg" alt="Lasertag" loading="lazy">
+            </div>
+            <div class="gal-item" data-label="Trampolinpark">
+                <img src="img/resized/OleOleOut_DSC9743.jpg" alt="Trampolinpark" loading="lazy">
+            </div>
+            <div class="gal-item gal-item--tall" data-label="Spielbereich">
+                <img src="img/resized/OleOleOut_DSC9809.jpg" alt="Spielbereich" loading="lazy">
+            </div>
+            <div class="gal-item gal-item--wide" data-label="Actionfläche">
+                <img src="img/resized/DSC9775_1.jpg" alt="Actionfläche" loading="lazy">
+            </div>
+            <div class="gal-item" data-label="Geburtstage">
+                <img src="img/resized/OleOleOut_DSC9891.jpg" alt="Geburtstage" loading="lazy">
+            </div>
+            <div class="gal-item" data-label="Go-Karts">
+                <img src="img/resized/OleOleOut_DSC9893.jpg" alt="Go-Karts" loading="lazy">
+            </div>
+            <div class="gal-item gal-item--tall" data-label="Spielautomaten">
+                <img src="img/resized/OleOleOut_DSC9798.jpg" alt="Spielautomaten" loading="lazy">
+            </div>
+            <div class="gal-item" data-label="Abenteuerwelt">
+                <img src="img/resized/OleOleOut_DSC9863.jpg" alt="Abenteuerwelt" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- HOURS & PRICES — Side-by-side panels -->
+    <section class="info-section">
+        <div class="section-header">
+            <span class="section-label">📍 Besuch planen</span>
+            <h2 class="section-title">Öffnungszeiten & Preise</h2>
+        </div>
+        <div class="info-panels">
+            <div class="info-panel">
+                <h3>🕐 Öffnungszeiten</h3>
+                <div class="hours-row"><span>Montag</span><span class="closed">Geschlossen*</span></div>
+                <div class="hours-row"><span>Dienstag – Freitag</span><span>14:00 – 19:00 Uhr</span></div>
+                <div class="hours-row"><span>Samstag – Sonntag</span><span>10:00 – 19:00 Uhr</span></div>
+                <div class="hours-row"><span>Ferien & Feiertage</span><span>10:00 – 19:00 Uhr</span></div>
+                <p class="hours-note">*Außer in Ferien & an Feiertagen</p>
+                <div class="info-chip">🅿️ Kostenlose Parkplätze</div>
+                <div class="info-chip info-chip--alt">🧦 Sockenpflicht</div>
+            </div>
+            <div class="info-panel">
+                <h3>💰 Eintrittspreise</h3>
+                <div class="price-row"><span>Kinder (3–14 Jahre)</span><span class="price-val">16 €</span></div>
+                <div class="price-row"><span>Kleinkinder (1–2 Jahre)</span><span class="price-val">7 €</span></div>
+                <div class="price-row"><span>Erwachsene</span><span class="price-val">7 €</span></div>
+                <div class="price-row"><span>Babys (unter 1 Jahr)</span><span class="price-val free">Frei!</span></div>
+                <div class="price-row"><span>Senioren</span><span class="price-val free">Frei!</span></div>
+                <div class="price-row"><span>Rollstuhlfahrer</span><span class="price-val free">Frei!</span></div>
+                <div class="price-row"><span>Jugendliche (15–17)</span><span class="price-val">Kein Eintritt</span></div>
+                <div class="price-divider-label">⚡ Happy Hour (ab 17 Uhr)</div>
+                <div class="price-row"><span>Kinder (3–14 Jahre)</span><span class="price-val">12 €</span></div>
+                <div class="price-row"><span>Kleinkinder (1–2 Jahre)</span><span class="price-val">5 €</span></div>
+                <div class="price-row"><span>Erwachsene</span><span class="price-val">5 €</span></div>
+                <div class="price-divider-label alt">🍼 Krabbelstunde (Di 10:00–12:30)</div>
+                <div class="price-row"><span>Kinder (1–2 Jahre)</span><span class="price-val">4 €</span></div>
+                <div class="price-row"><span>Erwachsene</span><span class="price-val">4 €</span></div>
+                <div class="price-row"><span>Babys (unter 12 Monate)</span><span class="price-val free">Frei!</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER — Minimal space footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="img/header.png" alt="Ole!Ole!" class="footer-logo">
+                    <p>Das Familien-, Spaß- und Freizeitzentrum in Mannheim. Über 3000m² Spielspaß für die ganze Familie!</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/Kinderspielplanet" target="_blank" rel="noopener noreferrer">📘</a>
+                        <a href="#">📸</a>
+                        <a href="mailto:info@spielplatz-mannheim.de">✉️</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Entdecken</h4>
+                    <a href="attraktionen.html">Attraktionen</a>
+                    <a href="galerie.html">Galerie</a>
+                    <a href="preise.html">Preise</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Feiern</h4>
+                    <a href="geburtstag.html">Kindergeburtstag</a>
+                    <a href="preise.html#gruppen">Gruppenreservierung</a>
+                    <a href="preise.html#gruppen">Schulausflüge</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <span>📍 Gutenbergstraße 41-43</span>
+                    <span>68167 Mannheim</span>
+                    <a href="tel:+4962186258963">📞 0621 86258963</a>
+                    <a href="mailto:info@spielplatz-mannheim.de">✉️ info@spielplatz-mannheim.de</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Ole!Ole! Kinderspielplanet</span>
+                <span><a href="#">Datenschutz</a> · <a href="#">Impressum</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="geburtstag.html" class="floating-btn">🎂</a>
+    </div>
+
+    <!-- Theme Switcher Logic -->
+    <script>
+    (function() {
+        'use strict';
+        var STORAGE_KEY = 'oleole-theme';
+        var VALID_THEMES = ['playful', 'soft', 'bold'];
+        var DEFAULT_THEME = 'playful';
+
+        function getTheme() {
+            var saved = localStorage.getItem(STORAGE_KEY);
+            return VALID_THEMES.indexOf(saved) !== -1 ? saved : DEFAULT_THEME;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem(STORAGE_KEY, theme);
+            document.querySelectorAll('.theme-dot').forEach(function(dot) {
+                dot.classList.toggle('active', dot.dataset.theme === theme);
+            });
+        }
+
+        function init() {
+            applyTheme(getTheme());
+            document.querySelectorAll('.theme-dot').forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    applyTheme(this.dataset.theme);
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+
+    <!-- Star Canvas -->
+    <script>
+    (function() {
+        var canvas = document.getElementById('stars-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var stars = [];
+        var shootingStars = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            var count = Math.floor((canvas.width * canvas.height) / 8000);
+            for (var i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.2 + 0.3,
+                    a: Math.random(),
+                    speed: Math.random() * 0.005 + 0.002,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        function createShootingStar() {
+            if (shootingStars.length > 2) return;
+            shootingStars.push({
+                x: Math.random() * canvas.width * 0.8 + canvas.width * 0.1,
+                y: Math.random() * canvas.height * 0.3,
+                len: Math.random() * 80 + 40,
+                speed: Math.random() * 6 + 4,
+                angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
+                life: 1
+            });
+        }
+
+        function draw(time) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            /* Stars */
+            for (var i = 0; i < stars.length; i++) {
+                var s = stars[i];
+                var opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * s.speed + s.phase));
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+                ctx.fill();
+            }
+
+            /* Shooting stars */
+            for (var j = shootingStars.length - 1; j >= 0; j--) {
+                var ss = shootingStars[j];
+                ss.x += Math.cos(ss.angle) * ss.speed;
+                ss.y += Math.sin(ss.angle) * ss.speed;
+                ss.life -= 0.008;
+                if (ss.life <= 0) { shootingStars.splice(j, 1); continue; }
+                var grad = ctx.createLinearGradient(
+                    ss.x, ss.y,
+                    ss.x - Math.cos(ss.angle) * ss.len,
+                    ss.y - Math.sin(ss.angle) * ss.len
+                );
+                grad.addColorStop(0, 'rgba(255,255,255,' + ss.life + ')');
+                grad.addColorStop(1, 'rgba(255,255,255,0)');
+                ctx.beginPath();
+                ctx.moveTo(ss.x, ss.y);
+                ctx.lineTo(ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        resize();
+        createStars();
+        requestAnimationFrame(draw);
+        setInterval(function() { if (Math.random() > 0.5) createShootingStar(); }, 4000);
+        window.addEventListener('resize', function() { resize(); createStars(); });
+    })();
+    </script>
+
+    <!-- Particle generator -->
+    <script>
+    (function() {
+        var container = document.getElementById('particles');
+        if (!container) return;
+        var colors = ['var(--c1)', 'var(--c2)', 'var(--c3)'];
+        for (var i = 0; i < 30; i++) {
+            var p = document.createElement('div');
+            p.className = 'particle';
+            var size = Math.random() * 4 + 2;
+            p.style.cssText =
+                'width:' + size + 'px;height:' + size + 'px;' +
+                'left:' + (Math.random() * 100) + '%;' +
+                'top:' + (Math.random() * 100) + '%;' +
+                'background:' + colors[Math.floor(Math.random() * 3)] + ';' +
+                'animation-duration:' + (Math.random() * 20 + 15) + 's;' +
+                'animation-delay:' + (Math.random() * 10) + 's;' +
+                'opacity:' + (Math.random() * 0.3 + 0.1) + ';';
+            container.appendChild(p);
+        }
+    })();
+    </script>
+</body>
+</html>
