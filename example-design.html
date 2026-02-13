@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ole!Ole! Kinderspielplanet - Space Explorer</title>
+    <title>Ole!Ole! Kinderspielplanet — Space Playground</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="example-design.css">
     <script>
         (function() {
@@ -19,138 +19,146 @@
 </head>
 <body>
 
-    <!-- Animated star canvas -->
-    <canvas id="stars-canvas"></canvas>
+    <!-- Floating emoji background -->
+    <div class="emoji-bg" id="emoji-bg" aria-hidden="true"></div>
 
-    <!-- Floating particles layer -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Navigation — transparent overlay style -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-brand">
-                <img src="img/header.png" alt="Ole!Ole!" class="nav-logo">
-                <span class="nav-status"><span class="pulse-dot"></span> Geöffnet</span>
+    <!-- === NAV — Simple, rounded, friendly === -->
+    <nav class="pg-nav">
+        <div class="pg-nav-inner">
+            <a href="index.html" class="pg-nav-brand">
+                <img src="img/header.png" alt="Ole!Ole!" class="pg-nav-logo">
+                <span class="pg-nav-open"><span class="pg-open-dot"></span> Geöffnet!</span>
             </a>
-            <div class="nav-center">
-                <a href="index.html" class="nav-link active">Start</a>
-                <a href="attraktionen.html" class="nav-link">Attraktionen</a>
-                <a href="preise.html" class="nav-link">Preise</a>
-                <a href="geburtstag.html" class="nav-link">Geburtstag</a>
-                <a href="galerie.html" class="nav-link">Galerie</a>
+            <div class="pg-nav-links">
+                <a href="index.html" class="pg-nav-link active">Start</a>
+                <a href="attraktionen.html" class="pg-nav-link">Attraktionen</a>
+                <a href="preise.html" class="pg-nav-link">Preise</a>
+                <a href="geburtstag.html" class="pg-nav-link">Geburtstag</a>
+                <a href="galerie.html" class="pg-nav-link">Galerie</a>
             </div>
-            <div class="nav-right">
+            <div class="pg-nav-right">
                 <div class="theme-switcher" aria-label="Farbthema wechseln">
-                    <button class="theme-dot theme-dot--playful active" data-theme="playful" title="Nebula" aria-label="Nebula Theme"></button>
-                    <button class="theme-dot theme-dot--soft" data-theme="soft" title="Aurora" aria-label="Aurora Theme"></button>
-                    <button class="theme-dot theme-dot--bold" data-theme="bold" title="Solar" aria-label="Solar Theme"></button>
+                    <button class="theme-dot theme-dot--playful active" data-theme="playful" title="Galactic" aria-label="Galactic Theme"></button>
+                    <button class="theme-dot theme-dot--soft" data-theme="soft" title="Ocean" aria-label="Ocean Theme"></button>
+                    <button class="theme-dot theme-dot--bold" data-theme="bold" title="Sunset" aria-label="Sunset Theme"></button>
                 </div>
-                <a href="geburtstag.html" class="nav-cta-btn">🚀 Reservieren</a>
+                <a href="geburtstag.html" class="pg-nav-cta">🚀 Reservieren!</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO — Full-screen immersive with centered content -->
-    <section class="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="hero-center">
-            <div class="hero-tag">🪐 Kinderspielplanet Mannheim</div>
-            <h1 class="hero-title">
-                Dein Abenteuer<br>
-                <span class="hero-title-accent">beginnt hier.</span>
+    <!-- === HERO — Big, bold, fun, centered === -->
+    <section class="pg-hero">
+        <div class="pg-hero-inner">
+            <div class="pg-hero-badge">🪐 Kinderspielplanet Mannheim</div>
+            <h1 class="pg-hero-title">
+                Willkommen im<br>
+                <span class="pg-hero-fun">Spielparadies!</span>
             </h1>
-            <p class="hero-sub">Über 3000m² voller Abenteuer für Kinder von 0–14 Jahren. Spielen, toben, feiern — 6 Tage die Woche!</p>
-            <div class="hero-actions">
-                <a href="geburtstag.html" class="btn-glow">🎂 Geburtstag feiern</a>
-                <a href="attraktionen.html" class="btn-outline">Attraktionen entdecken →</a>
+            <p class="pg-hero-sub">Über 3000m² voller Abenteuer für Kinder von 0–14 Jahren.<br>Spielen, toben, feiern — 6 Tage die Woche!</p>
+            <div class="pg-hero-btns">
+                <a href="geburtstag.html" class="pg-btn pg-btn--primary">🎂 Geburtstag feiern!</a>
+                <a href="attraktionen.html" class="pg-btn pg-btn--secondary">🎯 Attraktionen entdecken</a>
             </div>
-        </div>
 
-        <!-- Scrolling stats ticker at bottom of hero -->
-        <div class="hero-ticker">
-            <div class="ticker-track">
-                <div class="ticker-item"><span class="ticker-num">3000+</span> m² Spielfläche</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">20+</span> Attraktionen</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">0–14</span> Jahre</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">6</span> Tage/Woche</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">3000+</span> m² Spielfläche</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">20+</span> Attraktionen</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">0–14</span> Jahre</div>
-                <div class="ticker-sep">✦</div>
-                <div class="ticker-item"><span class="ticker-num">6</span> Tage/Woche</div>
-                <div class="ticker-sep">✦</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES — Horizontal scroll cards -->
-    <section class="features-section">
-        <div class="section-header">
-            <span class="section-label">🎯 Highlights</span>
-            <h2 class="section-title">Was dich erwartet</h2>
-        </div>
-        <div class="scroll-row">
-            <div class="feature-card">
-                <div class="feature-icon">🎈</div>
-                <h3>Riesige Hüpfburg</h3>
-                <p>Springen, toben und Spaß haben auf unserer XXL-Hüpfburg für alle Altersgruppen.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏎️</div>
-                <h3>Go-Kart Bahn</h3>
-                <p>Rasante Runden drehen auf unserer Indoor Go-Kart Bahn — Adrenalin garantiert!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Lasertag Arena</h3>
-                <p>Spannendes Lasertag-Erlebnis in unserer großen Arena mit Neon-Effekten.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🧗</div>
-                <h3>Kletterparadies</h3>
-                <p>Verschiedene Kletterwände und -parcours für kleine und große Abenteurer.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤸</div>
-                <h3>Trampolinpark</h3>
-                <p>Hoch hinaus! Unser Trampolinpark bringt Groß und Klein zum Fliegen.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🕹️</div>
-                <h3>Spielautomaten</h3>
-                <p>Klassische Arcade-Games und moderne Spielautomaten für jede Menge Spaß.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- BIRTHDAY — Full-width split with image background -->
-    <section class="birthday-section">
-        <div class="birthday-split">
-            <div class="birthday-left">
-                <div class="birthday-label">🎂 Kindergeburtstag</div>
-                <h2 class="birthday-title">Feiere deinen<br>Geburtstag<br><span class="accent">bei uns!</span></h2>
-                <p class="birthday-desc">Mach deinen Geburtstag unvergesslich! Mit dekorierten Tischen, leckerem Essen und allen Attraktionen. Wir kümmern uns um alles!</p>
-                <div class="birthday-perks">
-                    <div class="perk">⭐ Dekorierter Tisch</div>
-                    <div class="perk">🍕 Essen inklusive</div>
-                    <div class="perk">🎁 Überraschung</div>
-                    <div class="perk">🎮 Alle Attraktionen</div>
+            <!-- Fun bouncing stat bubbles -->
+            <div class="pg-hero-bubbles">
+                <div class="pg-bubble">
+                    <span class="pg-bubble-num">3000+</span>
+                    <span class="pg-bubble-label">m²</span>
                 </div>
-                <a href="geburtstag.html" class="btn-glow">Jetzt Geburtstag planen →</a>
+                <div class="pg-bubble">
+                    <span class="pg-bubble-num">20+</span>
+                    <span class="pg-bubble-label">Attraktionen</span>
+                </div>
+                <div class="pg-bubble">
+                    <span class="pg-bubble-num">0–14</span>
+                    <span class="pg-bubble-label">Jahre</span>
+                </div>
+                <div class="pg-bubble">
+                    <span class="pg-bubble-num">6</span>
+                    <span class="pg-bubble-label">Tage/Woche</span>
+                </div>
             </div>
-            <div class="birthday-right">
-                <div class="price-card">
-                    <div class="price-card-tag">Bestseller ⭐</div>
+        </div>
+        <div class="pg-wave pg-wave--hero">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--bg-section)"/></svg>
+        </div>
+    </section>
+
+    <!-- === FEATURES — Big icon cards, 2-col stagger === -->
+    <section class="pg-section pg-section--features">
+        <div class="pg-container">
+            <h2 class="pg-section-title">🎯 Was dich erwartet</h2>
+            <div class="pg-features-grid">
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🎈</div>
+                    <div class="pg-feature-info">
+                        <h3>Riesige Hüpfburg</h3>
+                        <p>Springen, toben und Spaß haben auf unserer XXL-Hüpfburg für alle Altersgruppen.</p>
+                    </div>
+                </div>
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🏎️</div>
+                    <div class="pg-feature-info">
+                        <h3>Go-Kart Bahn</h3>
+                        <p>Rasante Runden drehen auf unserer Indoor Go-Kart Bahn — Adrenalin garantiert!</p>
+                    </div>
+                </div>
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🎯</div>
+                    <div class="pg-feature-info">
+                        <h3>Lasertag Arena</h3>
+                        <p>Spannendes Lasertag-Erlebnis in unserer großen Arena mit Neon-Effekten.</p>
+                    </div>
+                </div>
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🧗</div>
+                    <div class="pg-feature-info">
+                        <h3>Kletterparadies</h3>
+                        <p>Verschiedene Kletterwände und -parcours für kleine und große Abenteurer.</p>
+                    </div>
+                </div>
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🤸</div>
+                    <div class="pg-feature-info">
+                        <h3>Trampolinpark</h3>
+                        <p>Hoch hinaus! Unser Trampolinpark bringt Groß und Klein zum Fliegen.</p>
+                    </div>
+                </div>
+                <div class="pg-feature-card">
+                    <div class="pg-feature-emoji">🕹️</div>
+                    <div class="pg-feature-info">
+                        <h3>Spielautomaten</h3>
+                        <p>Klassische Arcade-Games und moderne Spielautomaten für jede Menge Spaß.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pg-wave pg-wave--down">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,0 720,120 1080,60 C1260,30 1380,40 1440,60 L1440,120 L0,120 Z" fill="var(--bg-alt)"/></svg>
+        </div>
+    </section>
+
+    <!-- === BIRTHDAY — Big fun card centered === -->
+    <section class="pg-section pg-section--birthday">
+        <div class="pg-container">
+            <h2 class="pg-section-title">🎂 Kindergeburtstag</h2>
+            <p class="pg-section-sub">Mach deinen Geburtstag unvergesslich! Wir kümmern uns um alles.</p>
+
+            <div class="pg-birthday-layout">
+                <div class="pg-birthday-perks">
+                    <div class="pg-perk-item">⭐ Dekorierter Tisch</div>
+                    <div class="pg-perk-item">🍕 Leckeres Essen</div>
+                    <div class="pg-perk-item">🎁 Überraschung</div>
+                    <div class="pg-perk-item">🎮 Alle Attraktionen</div>
+                </div>
+
+                <div class="pg-birthday-card">
+                    <div class="pg-birthday-card-ribbon">Bestseller ⭐</div>
                     <h3>Deluxe Paket</h3>
-                    <div class="price-card-amount"><span class="currency">€</span>22<span class="per">/Kind</span></div>
-                    <div class="price-card-divider"></div>
-                    <ul class="price-card-list">
+                    <div class="pg-birthday-price">22€ <span>pro Kind</span></div>
+                    <ul>
                         <li>✔ Eintritt für alle Kinder</li>
                         <li>✔ Geburtstagskind feiert gratis!</li>
                         <li>✔ Reservierter & dekorierter Tisch</li>
@@ -158,160 +166,168 @@
                         <li>✔ Geschenk fürs Geburtstagskind</li>
                         <li>✔ Alle Attraktionen inklusive</li>
                     </ul>
-                    <a href="geburtstag.html" class="price-card-btn">Jetzt reservieren!</a>
+                    <a href="geburtstag.html" class="pg-btn pg-btn--primary pg-btn--full">🎉 Jetzt reservieren!</a>
+                </div>
+
+                <a href="geburtstag.html" class="pg-btn pg-btn--secondary pg-btn--lg">Mehr über Geburtstage →</a>
+            </div>
+        </div>
+        <div class="pg-wave pg-wave--down">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--bg-section)"/></svg>
+        </div>
+    </section>
+
+    <!-- === LOYALTY + GROUPS — Stacked cards === -->
+    <section class="pg-section pg-section--offers">
+        <div class="pg-container">
+            <h2 class="pg-section-title">🪐 Sparen & Gruppen</h2>
+
+            <!-- Loyalty -->
+            <div class="pg-offer-card pg-offer-card--big">
+                <div class="pg-offer-left">
+                    <h3>Die 10er-Karte</h3>
+                    <span class="pg-offer-badge">Spare Jetzt!</span>
+                    <p>Unsere 10er-Karte spart richtig Geld! Übertragbar und ohne zeitliche Begrenzung — flexibel für die ganze Familie.</p>
+                    <a href="https://maps.app.goo.gl/feNTfNP7UppZcevr7" target="_blank" rel="noopener noreferrer" class="pg-btn pg-btn--secondary pg-btn--sm">An der Kasse holen!</a>
+                </div>
+                <div class="pg-offer-stamps">
+                    <div class="pg-stamp filled">⭐</div>
+                    <div class="pg-stamp filled">⭐</div>
+                    <div class="pg-stamp filled">⭐</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                    <div class="pg-stamp">○</div>
+                </div>
+            </div>
+
+            <div class="pg-groups-row">
+                <div class="pg-offer-card">
+                    <h3>🎒 Schulausflüge & Kitas</h3>
+                    <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
+                    <p class="pg-small-note">Werktags vormittags, außerhalb der Ferien. Min. 10 Kinder.</p>
+                    <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Schulausflug" class="pg-btn pg-btn--secondary pg-btn--sm">Anfrage senden →</a>
+                </div>
+                <div class="pg-offer-card">
+                    <h3>🏢 Soziale Einrichtungen</h3>
+                    <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
+                    <p class="pg-small-note">Werktags vormittags, außerhalb der Ferien. Min. 10 Kinder.</p>
+                    <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Soziale%20Einrichtung" class="pg-btn pg-btn--secondary pg-btn--sm">Jetzt anfragen →</a>
+                </div>
+            </div>
+        </div>
+        <div class="pg-wave pg-wave--down">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,0 720,120 1080,60 C1260,30 1380,40 1440,60 L1440,120 L0,120 Z" fill="var(--bg-alt)"/></svg>
+        </div>
+    </section>
+
+    <!-- === GALLERY — Simple rounded grid === -->
+    <section class="pg-section pg-section--gallery">
+        <div class="pg-container">
+            <h2 class="pg-section-title">📸 Fotogalerie</h2>
+            <div class="pg-gallery-grid">
+                <div class="pg-gal-item pg-gal-item--big" data-label="Geburtstagszone 🎂">
+                    <img src="img/resized/Birthday.png" alt="Geburtstagszone" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Lasertag 🎯">
+                    <img src="img/resized/OleOleOut_DSC9879_1.jpg" alt="Lasertag" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Trampolinpark 🤸">
+                    <img src="img/resized/OleOleOut_DSC9743.jpg" alt="Trampolinpark" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Spielbereich 🎈">
+                    <img src="img/resized/OleOleOut_DSC9809.jpg" alt="Spielbereich" loading="lazy">
+                </div>
+                <div class="pg-gal-item pg-gal-item--wide" data-label="Actionfläche 🏎️">
+                    <img src="img/resized/DSC9775_1.jpg" alt="Actionfläche" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Geburtstage 🎁">
+                    <img src="img/resized/OleOleOut_DSC9891.jpg" alt="Geburtstage" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Go-Karts 🏎️">
+                    <img src="img/resized/OleOleOut_DSC9893.jpg" alt="Go-Karts" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Spielautomaten 🕹️">
+                    <img src="img/resized/OleOleOut_DSC9798.jpg" alt="Spielautomaten" loading="lazy">
+                </div>
+                <div class="pg-gal-item" data-label="Abenteuerwelt 🧗">
+                    <img src="img/resized/OleOleOut_DSC9863.jpg" alt="Abenteuerwelt" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="pg-wave pg-wave--down">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--bg-section)"/></svg>
+        </div>
+    </section>
+
+    <!-- === HOURS & PRICES — Friendly rounded cards === -->
+    <section class="pg-section pg-section--info">
+        <div class="pg-container">
+            <h2 class="pg-section-title">📍 Öffnungszeiten & Preise</h2>
+            <div class="pg-info-grid">
+                <div class="pg-info-card">
+                    <h3>🕐 Öffnungszeiten</h3>
+                    <div class="pg-info-row"><span>Montag</span><span class="pg-closed">Geschlossen*</span></div>
+                    <div class="pg-info-row"><span>Dienstag – Freitag</span><span>14:00 – 19:00 Uhr</span></div>
+                    <div class="pg-info-row"><span>Samstag – Sonntag</span><span>10:00 – 19:00 Uhr</span></div>
+                    <div class="pg-info-row"><span>Ferien & Feiertage</span><span>10:00 – 19:00 Uhr</span></div>
+                    <p class="pg-small-note">*Außer in Ferien & an Feiertagen</p>
+                    <div class="pg-chips">
+                        <span class="pg-chip">🅿️ Kostenlose Parkplätze</span>
+                        <span class="pg-chip pg-chip--alt">🧦 Sockenpflicht</span>
+                    </div>
+                </div>
+                <div class="pg-info-card">
+                    <h3>💰 Eintrittspreise</h3>
+                    <div class="pg-info-row"><span>Kinder (3–14 Jahre)</span><span class="pg-price">16 €</span></div>
+                    <div class="pg-info-row"><span>Kleinkinder (1–2 Jahre)</span><span class="pg-price">7 €</span></div>
+                    <div class="pg-info-row"><span>Erwachsene</span><span class="pg-price">7 €</span></div>
+                    <div class="pg-info-row"><span>Babys (unter 1 Jahr)</span><span class="pg-free">Frei!</span></div>
+                    <div class="pg-info-row"><span>Senioren</span><span class="pg-free">Frei!</span></div>
+                    <div class="pg-info-row"><span>Rollstuhlfahrer</span><span class="pg-free">Frei!</span></div>
+                    <div class="pg-info-row"><span>Jugendliche (15–17)</span><span>Kein Eintritt</span></div>
+                    <div class="pg-price-section">⚡ Happy Hour (ab 17 Uhr)</div>
+                    <div class="pg-info-row"><span>Kinder (3–14 Jahre)</span><span class="pg-price">12 €</span></div>
+                    <div class="pg-info-row"><span>Kleinkinder (1–2 Jahre)</span><span class="pg-price">5 €</span></div>
+                    <div class="pg-info-row"><span>Erwachsene</span><span class="pg-price">5 €</span></div>
+                    <div class="pg-price-section pg-price-section--alt">🍼 Krabbelstunde (Di 10–12:30)</div>
+                    <div class="pg-info-row"><span>Kinder (1–2 Jahre)</span><span class="pg-price">4 €</span></div>
+                    <div class="pg-info-row"><span>Erwachsene</span><span class="pg-price">4 €</span></div>
+                    <div class="pg-info-row"><span>Babys (unter 12 Mon.)</span><span class="pg-free">Frei!</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LOYALTY + GROUPS — Dashboard grid -->
-    <section class="dashboard-section">
-        <div class="dashboard-grid">
-            <!-- Loyalty Card -->
-            <div class="dash-card dash-card--loyalty">
-                <div class="dash-card-header">
-                    <h3>Die 10er-Karte 🪐</h3>
-                    <span class="dash-badge">Spare Jetzt!</span>
-                </div>
-                <p>Unsere 10er-Karte spart richtig Geld! Übertragbar und ohne zeitliche Begrenzung — flexibel für die ganze Familie.</p>
-                <div class="stamp-row">
-                    <div class="stamp filled">⭐</div>
-                    <div class="stamp filled">⭐</div>
-                    <div class="stamp filled">⭐</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                    <div class="stamp">○</div>
-                </div>
-                <a href="https://maps.app.goo.gl/feNTfNP7UppZcevr7" target="_blank" rel="noopener noreferrer" class="btn-outline btn-sm">An der Kasse holen!</a>
-            </div>
-
-            <!-- School Groups -->
-            <div class="dash-card dash-card--groups">
-                <div class="dash-card-header">
-                    <h3>Schulausflüge & Kitas 🎒</h3>
-                </div>
-                <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
-                <p class="dash-note">Werktags vormittags, außerhalb der Ferien. Mindestanzahl: 10 Kinder.</p>
-                <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Schulausflug" class="btn-outline btn-sm">Anfrage senden →</a>
-            </div>
-
-            <!-- Social Groups -->
-            <div class="dash-card dash-card--social">
-                <div class="dash-card-header">
-                    <h3>Soziale Einrichtungen 🏢</h3>
-                </div>
-                <p>Kinder (3–12 Jahre): <strong>12 € pro Kind</strong><br>Erwachsene: <strong>6 € pro Person</strong></p>
-                <p class="dash-note">Werktags vormittags, außerhalb der Ferien. Mindestanzahl: 10 Kinder.</p>
-                <a href="mailto:info@spielplatz-mannheim.de?subject=Anfrage%20Soziale%20Einrichtung" class="btn-outline btn-sm">Jetzt anfragen →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY — Masonry with bigger hero image -->
-    <section class="gallery-section">
-        <div class="section-header">
-            <span class="section-label">📸 Einblicke</span>
-            <h2 class="section-title">Fotogalerie</h2>
-        </div>
-        <div class="gallery-masonry">
-            <div class="gal-item gal-item--large" data-label="Geburtstagszone">
-                <img src="img/resized/Birthday.png" alt="Kinder feiern Geburtstag im Ole!Ole!" loading="lazy">
-            </div>
-            <div class="gal-item gal-item--tall" data-label="Lasertag">
-                <img src="img/resized/OleOleOut_DSC9879_1.jpg" alt="Lasertag" loading="lazy">
-            </div>
-            <div class="gal-item" data-label="Trampolinpark">
-                <img src="img/resized/OleOleOut_DSC9743.jpg" alt="Trampolinpark" loading="lazy">
-            </div>
-            <div class="gal-item gal-item--tall" data-label="Spielbereich">
-                <img src="img/resized/OleOleOut_DSC9809.jpg" alt="Spielbereich" loading="lazy">
-            </div>
-            <div class="gal-item gal-item--wide" data-label="Actionfläche">
-                <img src="img/resized/DSC9775_1.jpg" alt="Actionfläche" loading="lazy">
-            </div>
-            <div class="gal-item" data-label="Geburtstage">
-                <img src="img/resized/OleOleOut_DSC9891.jpg" alt="Geburtstage" loading="lazy">
-            </div>
-            <div class="gal-item" data-label="Go-Karts">
-                <img src="img/resized/OleOleOut_DSC9893.jpg" alt="Go-Karts" loading="lazy">
-            </div>
-            <div class="gal-item gal-item--tall" data-label="Spielautomaten">
-                <img src="img/resized/OleOleOut_DSC9798.jpg" alt="Spielautomaten" loading="lazy">
-            </div>
-            <div class="gal-item" data-label="Abenteuerwelt">
-                <img src="img/resized/OleOleOut_DSC9863.jpg" alt="Abenteuerwelt" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- HOURS & PRICES — Side-by-side panels -->
-    <section class="info-section">
-        <div class="section-header">
-            <span class="section-label">📍 Besuch planen</span>
-            <h2 class="section-title">Öffnungszeiten & Preise</h2>
-        </div>
-        <div class="info-panels">
-            <div class="info-panel">
-                <h3>🕐 Öffnungszeiten</h3>
-                <div class="hours-row"><span>Montag</span><span class="closed">Geschlossen*</span></div>
-                <div class="hours-row"><span>Dienstag – Freitag</span><span>14:00 – 19:00 Uhr</span></div>
-                <div class="hours-row"><span>Samstag – Sonntag</span><span>10:00 – 19:00 Uhr</span></div>
-                <div class="hours-row"><span>Ferien & Feiertage</span><span>10:00 – 19:00 Uhr</span></div>
-                <p class="hours-note">*Außer in Ferien & an Feiertagen</p>
-                <div class="info-chip">🅿️ Kostenlose Parkplätze</div>
-                <div class="info-chip info-chip--alt">🧦 Sockenpflicht</div>
-            </div>
-            <div class="info-panel">
-                <h3>💰 Eintrittspreise</h3>
-                <div class="price-row"><span>Kinder (3–14 Jahre)</span><span class="price-val">16 €</span></div>
-                <div class="price-row"><span>Kleinkinder (1–2 Jahre)</span><span class="price-val">7 €</span></div>
-                <div class="price-row"><span>Erwachsene</span><span class="price-val">7 €</span></div>
-                <div class="price-row"><span>Babys (unter 1 Jahr)</span><span class="price-val free">Frei!</span></div>
-                <div class="price-row"><span>Senioren</span><span class="price-val free">Frei!</span></div>
-                <div class="price-row"><span>Rollstuhlfahrer</span><span class="price-val free">Frei!</span></div>
-                <div class="price-row"><span>Jugendliche (15–17)</span><span class="price-val">Kein Eintritt</span></div>
-                <div class="price-divider-label">⚡ Happy Hour (ab 17 Uhr)</div>
-                <div class="price-row"><span>Kinder (3–14 Jahre)</span><span class="price-val">12 €</span></div>
-                <div class="price-row"><span>Kleinkinder (1–2 Jahre)</span><span class="price-val">5 €</span></div>
-                <div class="price-row"><span>Erwachsene</span><span class="price-val">5 €</span></div>
-                <div class="price-divider-label alt">🍼 Krabbelstunde (Di 10:00–12:30)</div>
-                <div class="price-row"><span>Kinder (1–2 Jahre)</span><span class="price-val">4 €</span></div>
-                <div class="price-row"><span>Erwachsene</span><span class="price-val">4 €</span></div>
-                <div class="price-row"><span>Babys (unter 12 Monate)</span><span class="price-val free">Frei!</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER — Minimal space footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="img/header.png" alt="Ole!Ole!" class="footer-logo">
-                    <p>Das Familien-, Spaß- und Freizeitzentrum in Mannheim. Über 3000m² Spielspaß für die ganze Familie!</p>
-                    <div class="footer-socials">
+    <!-- === FOOTER === -->
+    <footer class="pg-footer">
+        <div class="pg-container">
+            <div class="pg-footer-grid">
+                <div class="pg-footer-brand">
+                    <img src="img/header.png" alt="Ole!Ole!" class="pg-footer-logo">
+                    <p>Das Familien-, Spaß- und Freizeitzentrum in Mannheim. Über 3000m² Spielspaß!</p>
+                    <div class="pg-footer-socials">
                         <a href="https://www.facebook.com/Kinderspielplanet" target="_blank" rel="noopener noreferrer">📘</a>
                         <a href="#">📸</a>
                         <a href="mailto:info@spielplatz-mannheim.de">✉️</a>
                     </div>
                 </div>
-                <div class="footer-col">
+                <div class="pg-footer-col">
                     <h4>Entdecken</h4>
                     <a href="attraktionen.html">Attraktionen</a>
                     <a href="galerie.html">Galerie</a>
                     <a href="preise.html">Preise</a>
                 </div>
-                <div class="footer-col">
+                <div class="pg-footer-col">
                     <h4>Feiern</h4>
                     <a href="geburtstag.html">Kindergeburtstag</a>
                     <a href="preise.html#gruppen">Gruppenreservierung</a>
                     <a href="preise.html#gruppen">Schulausflüge</a>
                 </div>
-                <div class="footer-col">
+                <div class="pg-footer-col">
                     <h4>Kontakt</h4>
                     <span>📍 Gutenbergstraße 41-43</span>
                     <span>68167 Mannheim</span>
@@ -319,7 +335,7 @@
                     <a href="mailto:info@spielplatz-mannheim.de">✉️ info@spielplatz-mannheim.de</a>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="pg-footer-bottom">
                 <span>© 2026 Ole!Ole! Kinderspielplanet</span>
                 <span><a href="#">Datenschutz</a> · <a href="#">Impressum</a></span>
             </div>
@@ -327,156 +343,56 @@
     </footer>
 
     <!-- Floating CTA -->
-    <div class="floating-cta">
-        <a href="geburtstag.html" class="floating-btn">🎂</a>
+    <div class="pg-float-cta">
+        <a href="geburtstag.html" class="pg-float-btn">🎂</a>
     </div>
 
-    <!-- Theme Switcher Logic -->
+    <!-- ============ SCRIPTS ============ -->
+
+    <!-- Theme Switcher -->
     <script>
     (function() {
         'use strict';
-        var STORAGE_KEY = 'oleole-theme';
-        var VALID_THEMES = ['playful', 'soft', 'bold'];
-        var DEFAULT_THEME = 'playful';
-
-        function getTheme() {
-            var saved = localStorage.getItem(STORAGE_KEY);
-            return VALID_THEMES.indexOf(saved) !== -1 ? saved : DEFAULT_THEME;
+        var KEY = 'oleole-theme';
+        var VALID = ['playful', 'soft', 'bold'];
+        function get() { var s = localStorage.getItem(KEY); return VALID.indexOf(s) !== -1 ? s : 'playful'; }
+        function apply(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            localStorage.setItem(KEY, t);
+            document.querySelectorAll('.theme-dot').forEach(function(d) { d.classList.toggle('active', d.dataset.theme === t); });
         }
-
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem(STORAGE_KEY, theme);
-            document.querySelectorAll('.theme-dot').forEach(function(dot) {
-                dot.classList.toggle('active', dot.dataset.theme === theme);
-            });
-        }
-
         function init() {
-            applyTheme(getTheme());
-            document.querySelectorAll('.theme-dot').forEach(function(dot) {
-                dot.addEventListener('click', function() {
-                    applyTheme(this.dataset.theme);
-                });
+            apply(get());
+            document.querySelectorAll('.theme-dot').forEach(function(d) {
+                d.addEventListener('click', function() { apply(this.dataset.theme); });
             });
         }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
     })();
     </script>
 
-    <!-- Star Canvas -->
+    <!-- Floating emoji particles -->
     <script>
     (function() {
-        var canvas = document.getElementById('stars-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
-        var stars = [];
-        var shootingStars = [];
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = document.documentElement.scrollHeight;
-        }
-
-        function createStars() {
-            stars = [];
-            var count = Math.floor((canvas.width * canvas.height) / 8000);
-            for (var i = 0; i < count; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    r: Math.random() * 1.2 + 0.3,
-                    a: Math.random(),
-                    speed: Math.random() * 0.005 + 0.002,
-                    phase: Math.random() * Math.PI * 2
-                });
-            }
-        }
-
-        function createShootingStar() {
-            if (shootingStars.length > 2) return;
-            shootingStars.push({
-                x: Math.random() * canvas.width * 0.8 + canvas.width * 0.1,
-                y: Math.random() * canvas.height * 0.3,
-                len: Math.random() * 80 + 40,
-                speed: Math.random() * 6 + 4,
-                angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
-                life: 1
-            });
-        }
-
-        function draw(time) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            /* Stars */
-            for (var i = 0; i < stars.length; i++) {
-                var s = stars[i];
-                var opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * s.speed + s.phase));
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
-                ctx.fill();
-            }
-
-            /* Shooting stars */
-            for (var j = shootingStars.length - 1; j >= 0; j--) {
-                var ss = shootingStars[j];
-                ss.x += Math.cos(ss.angle) * ss.speed;
-                ss.y += Math.sin(ss.angle) * ss.speed;
-                ss.life -= 0.008;
-                if (ss.life <= 0) { shootingStars.splice(j, 1); continue; }
-                var grad = ctx.createLinearGradient(
-                    ss.x, ss.y,
-                    ss.x - Math.cos(ss.angle) * ss.len,
-                    ss.y - Math.sin(ss.angle) * ss.len
-                );
-                grad.addColorStop(0, 'rgba(255,255,255,' + ss.life + ')');
-                grad.addColorStop(1, 'rgba(255,255,255,0)');
-                ctx.beginPath();
-                ctx.moveTo(ss.x, ss.y);
-                ctx.lineTo(ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
-                ctx.strokeStyle = grad;
-                ctx.lineWidth = 1.5;
-                ctx.stroke();
-            }
-
-            requestAnimationFrame(draw);
-        }
-
-        resize();
-        createStars();
-        requestAnimationFrame(draw);
-        setInterval(function() { if (Math.random() > 0.5) createShootingStar(); }, 4000);
-        window.addEventListener('resize', function() { resize(); createStars(); });
-    })();
-    </script>
-
-    <!-- Particle generator -->
-    <script>
-    (function() {
-        var container = document.getElementById('particles');
+        var container = document.getElementById('emoji-bg');
         if (!container) return;
-        var colors = ['var(--c1)', 'var(--c2)', 'var(--c3)'];
-        for (var i = 0; i < 30; i++) {
-            var p = document.createElement('div');
-            p.className = 'particle';
-            var size = Math.random() * 4 + 2;
-            p.style.cssText =
-                'width:' + size + 'px;height:' + size + 'px;' +
+        var emojis = ['⭐', '🌟', '✨', '💫', '🪐', '🚀', '🌙', '☄️', '🎈', '🎯', '🎮'];
+        for (var i = 0; i < 20; i++) {
+            var el = document.createElement('div');
+            el.className = 'floating-emoji';
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.cssText =
                 'left:' + (Math.random() * 100) + '%;' +
                 'top:' + (Math.random() * 100) + '%;' +
-                'background:' + colors[Math.floor(Math.random() * 3)] + ';' +
-                'animation-duration:' + (Math.random() * 20 + 15) + 's;' +
-                'animation-delay:' + (Math.random() * 10) + 's;' +
-                'opacity:' + (Math.random() * 0.3 + 0.1) + ';';
-            container.appendChild(p);
+                'font-size:' + (Math.random() * 20 + 14) + 'px;' +
+                'animation-duration:' + (Math.random() * 25 + 20) + 's;' +
+                'animation-delay:' + (Math.random() * 15) + 's;' +
+                'opacity:' + (Math.random() * 0.15 + 0.05) + ';';
+            container.appendChild(el);
         }
     })();
     </script>
+
 </body>
 </html>
