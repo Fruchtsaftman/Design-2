@@ -6,7 +6,7 @@
     <title>Preise & Öffnungszeiten | Ole!Ole! Kinderspielplanet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
         (function() {
@@ -292,37 +292,26 @@
     })();
     </script>
 
-    <!-- Generate stars & shooting stars -->
+    <!-- Generate arcade grid pixels -->
     <script>
-        const starfield = document.getElementById('starfield');
-        for (let i = 0; i < 250; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            const size = Math.random() * 2 + 0.5;
-            s.style.cssText = `
-                width: ${size}px; height: ${size}px;
-                top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
-                --dur: ${Math.random() * 3 + 2}s;
-                --delay: ${Math.random() * 4}s;
-                --min-o: ${Math.random() * 0.2 + 0.1};
-                --max-o: ${Math.random() * 0.5 + 0.4};
-            `;
-            starfield.appendChild(s);
-        }
-
-        function createShootingStar() {
-            const shootingStar = document.createElement('div');
-            shootingStar.className = 'shooting-star';
-            shootingStar.style.top = Math.random() * 40 + '%';
-            shootingStar.style.left = Math.random() * 30 + 70 + '%';
-            starfield.appendChild(shootingStar);
-            setTimeout(() => shootingStar.classList.add('shooting-star-animate'), 10);
-            setTimeout(() => shootingStar.remove(), 2500);
-        }
-
-        setInterval(() => {
-            if (Math.random() > 0.4) createShootingStar();
-        }, 6000);
+        (function() {
+            var grid = document.getElementById('starfield');
+            if (!grid) return;
+            var colors = ['var(--teal)', 'var(--magenta)', 'var(--yellow)'];
+            for (var i = 0; i < 60; i++) {
+                var px = document.createElement('div');
+                px.className = 'grid-pixel';
+                px.style.cssText =
+                    'width: 2px; height: 2px;' +
+                    'top: ' + (Math.random() * 100) + '%;' +
+                    'left: ' + (Math.random() * 100) + '%;' +
+                    'background: ' + colors[Math.floor(Math.random() * 3)] + ';' +
+                    '--dur: ' + (Math.random() * 5 + 3) + 's;' +
+                    '--delay: ' + (Math.random() * 6) + 's;' +
+                    '--max-o: ' + (Math.random() * 0.25 + 0.1) + ';';
+                grid.appendChild(px);
+            }
+        })();
     </script>
 </body>
 </html>
