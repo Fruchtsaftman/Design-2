@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        (function() {
+            var saved = localStorage.getItem('oleole-theme');
+            if (saved && ['playful', 'soft', 'bold'].indexOf(saved) !== -1) {
+                document.documentElement.setAttribute('data-theme', saved);
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Starfield -->
@@ -31,6 +39,11 @@
                 <li><a href="galerie.html">Galerie</a></li>
                 <li><a href="geburtstag.html" class="nav-cta">Reservieren!</a></li>
             </ul>
+            <div class="theme-switcher" aria-label="Farbthema wechseln">
+                <button class="theme-dot theme-dot--playful active" data-theme="playful" title="Playful" aria-label="Playful Theme"></button>
+                <button class="theme-dot theme-dot--soft" data-theme="soft" title="Soft" aria-label="Soft Theme"></button>
+                <button class="theme-dot theme-dot--bold" data-theme="bold" title="Bold" aria-label="Bold Theme"></button>
+            </div>
         </div>
     </nav>
 
@@ -323,6 +336,44 @@
         <a href="geburtstag.html" class="floating-btn">🎂</a>
         <span class="floating-label">Jetzt reservieren!</span>
     </div>
+
+    <!-- Theme Switcher -->
+    <script>
+    (function() {
+        'use strict';
+        var STORAGE_KEY = 'oleole-theme';
+        var VALID_THEMES = ['playful', 'soft', 'bold'];
+        var DEFAULT_THEME = 'playful';
+
+        function getTheme() {
+            var saved = localStorage.getItem(STORAGE_KEY);
+            return VALID_THEMES.indexOf(saved) !== -1 ? saved : DEFAULT_THEME;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem(STORAGE_KEY, theme);
+            document.querySelectorAll('.theme-dot').forEach(function(dot) {
+                dot.classList.toggle('active', dot.dataset.theme === theme);
+            });
+        }
+
+        function init() {
+            applyTheme(getTheme());
+            document.querySelectorAll('.theme-dot').forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    applyTheme(this.dataset.theme);
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
 
     <!-- Generate stars & shooting stars -->
     <script>

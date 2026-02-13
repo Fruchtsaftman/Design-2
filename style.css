@@ -1,20 +1,91 @@
-        :root {
-            --magenta: #E8256F;
-            --magenta-light: #FF5A9E;
-            --teal: #00D4AA;
-            --teal-dark: #009977;
-            --yellow: #FFD23F;
-            --orange: #FF8C42;
+        /* === THEME: PLAYFUL (Default) — Logo-matched === */
+        :root,
+        :root[data-theme="playful"] {
+            --magenta: #D63384;
+            --magenta-light: #E85AAA;
+            --teal: #00B4D8;
+            --teal-dark: #0088A8;
+            --yellow: #00D4FF;
+            --orange: #0099BB;
             --space-dark: #0B0E1F;
             --space-mid: #121836;
             --space-purple: #1E1250;
             --space-blue: #162040;
-            --nebula-pink: rgba(232, 37, 111, 0.15);
-            --nebula-blue: rgba(0, 212, 170, 0.1);
+            --nebula-pink: rgba(214, 51, 132, 0.15);
+            --nebula-blue: rgba(0, 180, 216, 0.1);
             --cream: #FFF8E7;
             --white: #FFFFFF;
             --green: #2ECC71;
             --star: #FFFBE6;
+
+            /* Derived colors for previously hardcoded values */
+            --cta-shadow: #0088A8;
+            --cta-hover-bg: #33DFFF;
+            --nav-status-bg: rgba(0, 180, 216, 0.12);
+            --nav-status-border: rgba(0, 180, 216, 0.3);
+            --planet1-glow: rgba(0, 212, 255, 0.4);
+            --planet2-glow: rgba(214, 51, 132, 0.4);
+            --planet-core-shadow: rgba(214, 51, 132, 0.3);
+            --planet-core-shadow-strong: rgba(214, 51, 132, 0.4);
+            --planet-ring-border: rgba(0, 212, 255, 0.4);
+            --float3-border: #9E2266;
+            --loyalty-dashed: rgba(0, 212, 255, 0.3);
+            --info-hint-teal-bg: rgba(0, 180, 216, 0.15);
+            --info-hint-magenta-bg: rgba(214, 51, 132, 0.15);
+        }
+
+        /* === THEME: SOFT — Pastel Premium === */
+        :root[data-theme="soft"] {
+            --magenta: #E07AAF;
+            --magenta-light: #F0A0C8;
+            --teal: #5CC8E0;
+            --teal-dark: #3DA8C4;
+            --yellow: #7CDFEF;
+            --orange: #4AAFCC;
+            --green: #5BD491;
+            --nebula-pink: rgba(224, 122, 175, 0.12);
+            --nebula-blue: rgba(92, 200, 224, 0.08);
+
+            --cta-shadow: #3DA8C4;
+            --cta-hover-bg: #A0E8F5;
+            --nav-status-bg: rgba(92, 200, 224, 0.12);
+            --nav-status-border: rgba(92, 200, 224, 0.3);
+            --planet1-glow: rgba(124, 223, 239, 0.4);
+            --planet2-glow: rgba(224, 122, 175, 0.4);
+            --planet-core-shadow: rgba(224, 122, 175, 0.3);
+            --planet-core-shadow-strong: rgba(224, 122, 175, 0.4);
+            --planet-ring-border: rgba(124, 223, 239, 0.4);
+            --float3-border: #C06090;
+            --loyalty-dashed: rgba(124, 223, 239, 0.3);
+            --info-hint-teal-bg: rgba(92, 200, 224, 0.15);
+            --info-hint-magenta-bg: rgba(224, 122, 175, 0.15);
+        }
+
+        /* === THEME: BOLD — Retro Arcade === */
+        :root[data-theme="bold"] {
+            --magenta: #FF1F6E;
+            --magenta-light: #FF5C96;
+            --teal: #00C8FF;
+            --teal-dark: #0098CC;
+            --yellow: #00EAFF;
+            --orange: #00A5C4;
+            --green: #00E676;
+            --nebula-pink: rgba(255, 31, 110, 0.18);
+            --nebula-blue: rgba(0, 200, 255, 0.12);
+
+            --cta-shadow: #0098CC;
+            --cta-hover-bg: #44F0FF;
+            --nav-status-bg: rgba(0, 200, 255, 0.12);
+            --nav-status-border: rgba(0, 200, 255, 0.3);
+            --planet1-glow: rgba(0, 234, 255, 0.5);
+            --planet2-glow: rgba(255, 31, 110, 0.5);
+            --planet-core-shadow: rgba(255, 31, 110, 0.3);
+            --planet-core-shadow-strong: rgba(255, 31, 110, 0.5);
+            --planet-ring-border: rgba(0, 234, 255, 0.5);
+            --float3-border: #CC1055;
+            --loyalty-dashed: rgba(0, 234, 255, 0.3);
+            --info-hint-teal-bg: rgba(0, 200, 255, 0.15);
+            --info-hint-magenta-bg: rgba(255, 31, 110, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -144,8 +215,8 @@
 
         .nav-status {
             display: flex; align-items: center; gap: 0.4rem;
-            background: rgba(0, 212, 170, 0.12);
-            border: 1px solid rgba(0, 212, 170, 0.3);
+            background: var(--nav-status-bg);
+            border: 1px solid var(--nav-status-border);
             padding: 0.3rem 0.8rem; border-radius: 20px;
             font-size: 0.75rem; font-weight: 700;
             color: var(--teal); text-transform: uppercase; letter-spacing: 0.5px;
@@ -174,12 +245,12 @@
 
         .nav-cta {
             background: var(--yellow) !important; color: var(--space-dark) !important;
-            box-shadow: 0 4px 0 #C9A000;
+            box-shadow: 0 4px 0 var(--cta-shadow);
         }
 
         .nav-cta:hover {
-            background: #FFE066 !important; transform: translateY(-2px) !important;
-            box-shadow: 0 6px 0 #C9A000 !important;
+            background: var(--cta-hover-bg) !important; transform: translateY(-2px) !important;
+            box-shadow: 0 6px 0 var(--cta-shadow) !important;
         }
 
         /* === STATUS BANNER === */
@@ -245,7 +316,7 @@
             width: 18px; height: 18px;
             background: var(--yellow);
             top: 15%; right: 12%;
-            box-shadow: 0 0 15px rgba(255,210,63,0.4);
+            box-shadow: 0 0 15px var(--planet1-glow);
             --dur: 7s;
         }
 
@@ -253,7 +324,7 @@
             width: 12px; height: 12px;
             background: var(--magenta);
             top: 60%; right: 8%;
-            box-shadow: 0 0 12px rgba(232,37,111,0.4);
+            box-shadow: 0 0 12px var(--planet2-glow);
             --dur: 9s; --delay: -3s;
         }
 
@@ -261,7 +332,7 @@
             width: 8px; height: 8px;
             background: var(--teal);
             bottom: 25%; left: 15%;
-            box-shadow: 0 0 10px rgba(0,212,170,0.4);
+            box-shadow: 0 0 10px var(--planet2-glow);
             --dur: 6s; --delay: -1s;
         }
 
@@ -334,12 +405,12 @@
             position: absolute; inset: 0; border-radius: 50%;
             background: radial-gradient(circle at 35% 35%, #3a1878, var(--space-purple), var(--magenta));
             animation: planet-pulse 4s ease-in-out infinite;
-            box-shadow: 0 0 60px rgba(232, 37, 111, 0.3), inset 0 0 40px rgba(0,0,0,0.4);
+            box-shadow: 0 0 60px var(--planet-core-shadow), inset 0 0 40px rgba(0,0,0,0.4);
         }
 
         @keyframes planet-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(232,37,111,0.3), inset 0 0 40px rgba(0,0,0,0.4); }
-            50% { transform: scale(1.02); box-shadow: 0 0 80px rgba(232,37,111,0.4), inset 0 0 40px rgba(0,0,0,0.4); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px var(--planet-core-shadow), inset 0 0 40px rgba(0,0,0,0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 80px var(--planet-core-shadow-strong), inset 0 0 40px rgba(0,0,0,0.4); }
         }
 
         /* Planet ring */
@@ -348,7 +419,7 @@
             top: 50%; left: 50%;
             width: 480px; height: 120px;
             margin-left: -240px; margin-top: -60px;
-            border: 3px solid rgba(255,210,63,0.4);
+            border: 3px solid var(--planet-ring-border);
             border-radius: 50%;
             transform: rotateX(70deg) rotateZ(-20deg);
             /* Static Saturn ring — no animation */
@@ -403,7 +474,7 @@
         .float-3 {
             bottom: -5px; right: 8%;
             background: var(--magenta); color: white;
-            border-color: #a01550;
+            border-color: var(--float3-border);
             --rot: 3deg; animation-delay: -2s;
         }
 
@@ -776,7 +847,7 @@
 
         .loyalty-card-visual::after {
             content: ''; position: absolute; inset: 10px;
-            border: 3px dashed rgba(255,210,63,0.3);
+            border: 3px dashed var(--loyalty-dashed);
         }
 
         .loyalty-card-inner { text-align: center; position: relative; z-index: 2; }
@@ -985,10 +1056,10 @@
             margin-top: 1.5rem; padding: 0.75rem 1rem;
             display: flex; align-items: center; gap: 0.75rem;
             font-weight: 700; font-size: 0.9rem;
-            background: rgba(0, 212, 170, 0.15); border: 1px solid var(--teal); color: var(--teal);
+            background: var(--info-hint-teal-bg); border: 1px solid var(--teal); color: var(--teal);
         }
 
-        .info-hint-magenta { background: rgba(232,37,111,0.15); border-color: var(--magenta); color: var(--magenta-light); }
+        .info-hint-magenta { background: var(--info-hint-magenta-bg); border-color: var(--magenta); color: var(--magenta-light); }
         .info-hint-icon { font-size: 1.3rem; flex-shrink: 0; }
 
         /* === FOOTER === */
@@ -1068,6 +1139,51 @@
             font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
         }
 
+        /* === THEME SWITCHER === */
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-left: 0.75rem;
+            padding-left: 0.75rem;
+            border-left: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .theme-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0;
+            background: none;
+            outline: none;
+        }
+
+        .theme-dot:hover {
+            transform: scale(1.25);
+            border-color: rgba(255,255,255,0.7);
+        }
+
+        .theme-dot.active {
+            border-color: var(--white);
+            box-shadow: 0 0 8px rgba(255,255,255,0.4);
+            transform: scale(1.15);
+        }
+
+        .theme-dot--playful {
+            background: linear-gradient(135deg, #D63384, #00B4D8);
+        }
+
+        .theme-dot--soft {
+            background: linear-gradient(135deg, #E07AAF, #5CC8E0);
+        }
+
+        .theme-dot--bold {
+            background: linear-gradient(135deg, #FF1F6E, #00C8FF);
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 968px) {
             .hero-container, .birthday-container, .hours-grid,
@@ -1078,6 +1194,20 @@
             .planet-ring { width: 340px; height: 85px; margin-left: -170px; margin-top: -42px; }
             .features-grid { grid-template-columns: 1fr 1fr; }
             .nav-links { display: none; }
+            .theme-switcher {
+                position: fixed;
+                bottom: 5rem;
+                left: 1rem;
+                z-index: 999;
+                background: rgba(11, 14, 31, 0.9);
+                padding: 0.5rem 0.6rem;
+                border-radius: 20px;
+                border-left: none;
+                border: 1px solid rgba(255,255,255,0.15);
+                backdrop-filter: blur(8px);
+                margin-left: 0;
+                padding-left: 0.6rem;
+            }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .stats-container { flex-wrap: wrap; gap: 2rem; }
             .float-element { display: none; }
